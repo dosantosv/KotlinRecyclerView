@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinrecyclerview.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.recyclerview
 import java.net.URL
 
 class MainActivity : AppCompatActivity() {
@@ -37,8 +38,12 @@ class MainActivity : AppCompatActivity() {
             openLink(live.link)
         }
 
-        _binding.recyclerview.layoutManager = LinearLayoutManager(this)
-        _binding.recyclerview.adapter = this.liveAdapter
+        recyclerview.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = liveAdapter
+        }
+
+
 
     }
 
